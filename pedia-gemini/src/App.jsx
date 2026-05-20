@@ -221,25 +221,23 @@ export default function App(){
     setLoading(true);
     setPet(THINK);
 
-    // Llamada al proxy de Vercel (api/chat.js)
-    const geminiMsgs=updated.map(m=>({
-      role:m.role==='assistant'?'model':'user',
-      parts:[{text:m.content}]
-    }));
-
     try{
       const res=await fetch('/api/chat',{
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
-          system_instruction:{parts:[{text:SYSTEM_PROMPT}]},
-          contents:geminiMsgs,
-          generationConfig:{maxOutputTokens:800,temperature:0.7},
+          model:'llama-3.3-70b-versatile',
+          messages:[
+            {role:'system',content:SYSTEM_PROMPT},
+            ...updated.map(m=>({role:m.role==='assistant'?'assistant':'user',content:m.content}))
+          ],
+          max_tokens:500,
+          temperature:0.7,
         }),
       });
       const data=await res.json();
-      if(data.error) throw new Error(data.error.message||data.error);
-      const reply=data.candidates?.[0]?.content?.parts?.[0]?.text||'Sin respuesta.';
+      if(data.error) throw new Error(data.error.message||JSON.stringify(data.error));
+      const reply=data.choices?.[0]?.message?.content||'Sin respuesta.';
       const mood=detectSentiment(reply);
       setPet(mood);
       setMsgs([...updated,{role:'assistant',content:reply}]);
@@ -280,7 +278,7 @@ export default function App(){
         </div>
         <div style={{textAlign:'center',marginBottom:12}}>
           <div style={{color:'#00d4f5',fontSize:20,fontWeight:'bold',letterSpacing:7,textShadow:'0 0 14px rgba(0,212,245,0.5)'}}>PedIA</div>
-          <div style={{fontSize:7,color:'rgba(0,130,170,0.45)',letterSpacing:'2.5px',marginTop:2}}>DIGITAL COMPANION v2.0 · GEMINI EDITION</div>
+          <div style={{fontSize:7,color:'rgba(0,130,170,0.45)',letterSpacing:'2.5px',marginTop:2}}>DIGITAL COMPANION v2.0 · GROQ EDITION</div>
         </div>
 
         <div style={{background:'#010710',borderRadius:20,border:'2px solid #080f1c',boxShadow:'inset 0 0 50px rgba(0,0,0,0.95)',overflow:'hidden',position:'relative',minHeight:390,display:'flex',flexDirection:'column'}}>
