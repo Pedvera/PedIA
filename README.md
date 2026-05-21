@@ -1,4 +1,4 @@
-# PedIA — Digital Companion
+# PedIA — Compañero digital
 
 > Tu compañero digital inteligente con interfaz de V-Pet estilo Digimon.
 
@@ -196,6 +196,12 @@ const cD = '#0e72a0'  // color oscuro
 
 MIT — libre para usar, modificar y distribuir.
 
+
 ---
+## 📬 Contacto
+
+- 📱 Telefono: +595994392370
+- 📧 Email: pedrovera123@gmail.com  
+- 💼 LinkedIn: [Pedvera](https://www.linkedin.com/in/pedro-vera-66580a371/)  
 
 *Construido con curiosidad, pixel art y demasiado café.* ☕
