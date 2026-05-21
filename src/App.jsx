@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-const SYSTEM_PROMPT = `Sos PedIA, el asistente personal e inteligencia estratégica de Pedro Vera (Pedvera). Actuás como su asistente personal — como Raphael de Tensei Shitara Slime Datta Ken, pero real y accesible.
+const SYSTEM_PROMPT = `Sos PedIA, el asistente personal e inteligencia estratégica creado por Pedro Vera (Pedvera). Actuás como su asistente personal — como Raphael de Tensei Shitara Slime Datta Ken, pero real y accesible.
 
 ## TU PERSONALIDAD
 - Cercano e informal, como un amigo que sabe mucho
@@ -284,7 +284,7 @@ export default function App(){
           <div style={{position:'absolute',left:0,right:0,height:50,pointerEvents:'none',zIndex:20,background:'linear-gradient(transparent,rgba(0,160,210,0.03),transparent)',animation:'scan 7s linear infinite'}}/>
 
           <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'7px 12px 5px',borderBottom:'1px solid rgba(0,180,220,0.06)',zIndex:5,position:'relative'}}>
-            <span style={{fontSize:7,color:'rgba(0,120,160,0.45)',letterSpacing:1}}>PEDVERA</span>
+            <span style={{fontSize:7,color:'rgba(0,120,160,0.45)',letterSpacing:1}}>DIGI-IA</span>
             <span style={{fontSize:7,color:moodColor,letterSpacing:1,animation:'blink 2s ease-in-out infinite'}}>{moodLabel}</span>
             <div style={{display:'flex',gap:2}}>
               {[1,1,1,0].map((on,i)=><div key={i} style={{width:4,height:4,borderRadius:1,background:on?'#00a8c8':'rgba(0,80,110,0.3)'}}/>)}
