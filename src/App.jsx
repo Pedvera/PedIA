@@ -155,7 +155,7 @@ function Creature({state,frame,posX}){
 }
 
 export default function App(){
-  const [msgs,setMsgs]=useState([{role:'assistant',content:'¡ Hola hola, estoy en línea! 🔵\n\n Un gusto, soy PedIA, en que te puedo ser util?'}]);
+  const [msgs,setMsgs]=useState([{role:'assistant',content:'¡ Hola hola, estoy en línea! 🔵\n\n Un gusto, soy PedIA, que onda?'}]);
   const [input,setInput]=useState('');
   const [state,setState]=useState(IDLE);
   const [posX,setPosX]=useState(0);
